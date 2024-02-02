@@ -102,6 +102,7 @@ const Home: NextPage = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
+        <ConnectWallet clientId={process.env.NEXT_PUBLIC_CLIENT_ID} />
         <h4 className={styles.title}>
           edit <code>`pages/index.tsx`</code> to begin.
         </h4>
