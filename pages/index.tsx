@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       const [attributes, setAttributes] = useState<Attributes>({});
       const [allNFTs, setAllNFTs] = useState<any[]>([]);
       const chain = useChain();
-      const [network, setNetwork] = useState<string>("");
+      const [network, setNetwork] = useState<string>("frame-testnet");
     
       // Set network for NFTSearcher based on chain
       useEffect(() => {
