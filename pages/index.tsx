@@ -102,11 +102,13 @@ const Home: NextPage = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <ConnectWallet clientId={process.env.NEXT_PUBLIC_CLIENT_ID} />
+        <div style={{textAlign: 'right'}}>
+          <ConnectWallet clientId={process.env.NEXT_PUBLIC_CLIENT_ID} />
+        </div>
         <h4 className={styles.title}>
           edit <code>`pages/index.tsx`</code> to begin.
         </h4>
-          <div style={{marginLeft:'auto', marginRight:'auto'}}>
+          <div style={{textAlign: 'center'}}>
             <NFTSearcher 
             activeNetwork={network}
             theme={"light"} // "light" or "dark"
