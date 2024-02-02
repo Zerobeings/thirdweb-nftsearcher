@@ -103,7 +103,7 @@ const Home: NextPage = () => {
     <main className={styles.main}>
       <div className={styles.container}>
         <div style={{textAlign: 'right'}}>
-          <ConnectWallet clientId={process.env.NEXT_PUBLIC_CLIENT_ID} />
+          <ConnectWallet />
         </div>
         <h4 className={styles.title}>
           edit <code>`pages/index.tsx`</code> to begin.
