@@ -88,13 +88,7 @@ const Home: NextPage = () => {
               return nft.metadata.attributes.some((attribute: any) => {
                 return selectedAttribute.includes(attribute.trait_type) && selectedAttribute.includes(attribute.value);
               });
-            } else if (nft.attributes) {
-                const whereNew = selectedAttribute !== "" ? [selectedAttribute] as any[] : [] as any[];
-                setWhere(whereNew);
-              return Object.entries(nft.attributes || {}).some(([key, value]) => {
-                return selectedAttribute.includes(key) && selectedAttribute.includes(String(value));
-              });
-              }
+            }
           });
           setFetchedNFTs(updateNFTs);
       }
