@@ -6,6 +6,10 @@ import { useEffect, useState, useCallback } from "react";
 import NFTCard from "../components/NFTCard/NFTCard";
 import Filter from "../components/Filter/Filter";
 
+interface Attributes {
+  [key: string]: string[];
+}
+
 const Home: NextPage = () => {
       const [fetchedNFTs, setFetchedNFTs] = useState<any[]>([]);
       const [loading, setLoading] = useState<boolean>(false);

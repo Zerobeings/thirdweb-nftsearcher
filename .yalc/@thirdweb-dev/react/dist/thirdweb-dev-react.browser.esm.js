@@ -1,5 +1,5 @@
-import { E as ExportLocalWallet } from './oneKeyWallet-4fc1c7f5.browser.esm.js';
-export { b as ConnectEmbed, a as ConnectModalInline, C as ConnectWallet, M as MediaRenderer, c as NFTSearcher, N as NetworkSelector, w as ThirdwebNftMedia, T as ThirdwebProvider, W as Web3Button, d as defaultTokens, e as embeddedWallet, t as oneKeyWallet, l as useBloctoWallet, j as useCoinbaseWallet, m as useEmbeddedWallet, o as useEmbeddedWalletSendVerificationEmail, n as useEmbeddedWalletUserEmail, k as useFrameWallet, f as useInstalledWallets, i as useMetamask, q as usePaperWallet, p as usePaperWalletUserEmail, g as useRainbowWallet, v as useResolvedMediaType, u as useShowConnectEmbed, h as useTrustWallet, r as useWalletConnect, s as useWalletConnectV1 } from './oneKeyWallet-4fc1c7f5.browser.esm.js';
+import { E as ExportLocalWallet } from './oneKeyWallet-bbddaec7.browser.esm.js';
+export { b as ConnectEmbed, a as ConnectModalInline, C as ConnectWallet, M as MediaRenderer, c as NFTSearcher, N as NetworkSelector, w as ThirdwebNftMedia, T as ThirdwebProvider, W as Web3Button, d as defaultTokens, e as embeddedWallet, t as oneKeyWallet, l as useBloctoWallet, j as useCoinbaseWallet, m as useEmbeddedWallet, o as useEmbeddedWalletSendVerificationEmail, n as useEmbeddedWalletUserEmail, k as useFrameWallet, f as useInstalledWallets, i as useMetamask, q as usePaperWallet, p as usePaperWalletUserEmail, g as useRainbowWallet, v as useResolvedMediaType, u as useShowConnectEmbed, h as useTrustWallet, r as useWalletConnect, s as useWalletConnectV1 } from './oneKeyWallet-bbddaec7.browser.esm.js';
 import { F as FormFieldWithIconButton, w as wait, C as ConnectingScreen, G as GetStartedScreen, H as HeadlessConnectUI, S as ScanScreen, h as handelWCSessionRequest, E as ExtensionOrWCConnectionUI } from './safeChainSlug-40029368.browser.esm.js';
 export { c as coinbaseWallet, d as defaultWallets, m as metamaskWallet, p as phantomWallet, r as rainbowWallet, t as trustWallet, a as walletConnect, z as zerionWallet } from './safeChainSlug-40029368.browser.esm.js';
 import { useCreateWalletInstance, useSetConnectionStatus, useSetConnectedWallet, useWalletContext, useWallets, shortenAddress, useConnect, useSDKChainId, useConnectionStatus } from '@thirdweb-dev/react-core';
@@ -16,7 +16,7 @@ import { UploadIcon, EyeClosedIcon, EyeOpenIcon, ExclamationTriangleIcon } from 
 import styled from '@emotion/styled';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 export { magicLink } from './magicLink-47c75a59.browser.esm.js';
-export { paperWallet } from './paperWallet-915c421d.browser.esm.js';
+export { paperWallet } from './paperWallet-c191fe7a.browser.esm.js';
 export { safeWallet } from './safeWallet-794cd2e2.browser.esm.js';
 export { walletConnectV1 } from './walletConnectV1-af7258ed.browser.esm.js';
 export { u as useSafe } from './useSafe-e10692a7.browser.esm.js';

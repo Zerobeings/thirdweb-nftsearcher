@@ -1,46 +1,52 @@
-import { PaperWallet } from '@thirdweb-dev/wallets';
-import { useState, useCallback, useRef, useEffect } from 'react';
-import styled from '@emotion/styled';
-import { c as useTWLocale, u as useCustomTheme, I as Img, a as iconSize, q as TextDivider, C as Container, M as ModalHeader, S as Spacer, B as Button, s as spacing, T as Text, v as Input, e as Spinner, L as Line, A as StyledButton, h as fontSize, J as ModalTitle, W as WalletEntryButton } from './formElements-76996230.esm.js';
-import { x as openOauthSignInWindow, O as OTPInput } from './oneKeyWallet-5b2246f7.esm.js';
-import { g as googleIconUri, I as InputSelectionUI, e as emailIcon, u as useScreenContext, r as reservedScreens } from './Tooltip-aa542e9d.esm.js';
-import { jsxs, Fragment, jsx } from 'react/jsx-runtime';
-import '@emotion/react';
-import '@thirdweb-dev/react-core';
-import '@radix-ui/react-icons';
-import 'detect-browser';
-import '@radix-ui/colors';
-import '@radix-ui/react-popover';
-import 'copy-to-clipboard';
-import '@radix-ui/react-tabs';
-import 'fuse.js';
-import '@thirdweb-dev/chains';
-import './safeChainSlug-5618ef58.esm.js';
-import 'qrcode';
-import '@tanstack/react-query';
-import 'ethers';
-import '@thirdweb-dev/sdk';
-import 'tiny-invariant';
-import '@radix-ui/react-dialog';
-import '@radix-ui/react-focus-scope';
-import '@radix-ui/react-tooltip';
+'use strict';
+
+var wallets = require('@thirdweb-dev/wallets');
+var React = require('react');
+var styled = require('@emotion/styled');
+var formElements = require('./formElements-a5b9f4ea.cjs.dev.js');
+var oneKeyWallet = require('./oneKeyWallet-6a8be508.cjs.dev.js');
+var Tooltip = require('./Tooltip-df8ac8db.cjs.dev.js');
+var jsxRuntime = require('react/jsx-runtime');
+require('@emotion/react');
+require('@thirdweb-dev/react-core');
+require('@radix-ui/react-icons');
+require('detect-browser');
+require('@radix-ui/colors');
+require('@radix-ui/react-popover');
+require('copy-to-clipboard');
+require('@radix-ui/react-tabs');
+require('fuse.js');
+require('@thirdweb-dev/chains');
+require('./safeChainSlug-676eb36b.cjs.dev.js');
+require('qrcode');
+require('@tanstack/react-query');
+require('ethers');
+require('@thirdweb-dev/sdk');
+require('tiny-invariant');
+require('@radix-ui/react-dialog');
+require('@radix-ui/react-focus-scope');
+require('@radix-ui/react-tooltip');
+
+function _interopDefault (e) { return e && e.__esModule ? e : { 'default': e }; }
+
+var styled__default = /*#__PURE__*/_interopDefault(styled);
 
 const PaperFormUI = props => {
-  const cwLocale = useTWLocale().connectWallet;
-  const locale = useTWLocale().wallets.paperWallet;
+  const cwLocale = formElements.useTWLocale().connectWallet;
+  const locale = formElements.useTWLocale().wallets.paperWallet;
   const {
     createWalletInstance,
     setConnectionStatus,
     setConnectedWallet
   } = props;
-  const themeObj = useCustomTheme();
+  const themeObj = formElements.useCustomTheme();
 
   // Need to trigger google login on button click to avoid popup from being blocked
   const googleLogin = async () => {
     try {
       const paperWallet = createWalletInstance();
       setConnectionStatus("connecting");
-      const googleWindow = openOauthSignInWindow("google", themeObj);
+      const googleWindow = oneKeyWallet.openOauthSignInWindow("google", themeObj);
       if (!googleWindow) {
         throw new Error("Failed to open google login window");
       }
@@ -58,9 +64,9 @@ const PaperFormUI = props => {
       console.error(e);
     }
   };
-  return /*#__PURE__*/jsxs("div", {
-    children: [props.googleLoginSupported && /*#__PURE__*/jsxs(Fragment, {
-      children: [/*#__PURE__*/jsxs(SocialButton, {
+  return /*#__PURE__*/jsxRuntime.jsxs("div", {
+    children: [props.googleLoginSupported && /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/jsxRuntime.jsxs(SocialButton, {
         variant: "secondary",
         fullWidth: true,
         onClick: () => {
@@ -69,16 +75,16 @@ const PaperFormUI = props => {
             google: true
           });
         },
-        children: [/*#__PURE__*/jsx(Img, {
-          src: googleIconUri,
-          width: iconSize.md,
-          height: iconSize.md
+        children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Img, {
+          src: Tooltip.googleIconUri,
+          width: formElements.iconSize.md,
+          height: formElements.iconSize.md
         }), locale.signInWithGoogle]
-      }), /*#__PURE__*/jsx(TextDivider, {
+      }), /*#__PURE__*/jsxRuntime.jsx(formElements.TextDivider, {
         text: cwLocale.or,
         py: "lg"
       })]
-    }), /*#__PURE__*/jsx(InputSelectionUI, {
+    }), /*#__PURE__*/jsxRuntime.jsx(Tooltip.InputSelectionUI, {
       onSelect: email => props.onSelect({
         email
       }),
@@ -100,8 +106,8 @@ const PaperFormUI = props => {
 };
 const PaperFormUIScreen = props => {
   const isCompact = props.modalSize === "compact";
-  const locale = useTWLocale().wallets.paperWallet;
-  return /*#__PURE__*/jsxs(Container, {
+  const locale = formElements.useTWLocale().wallets.paperWallet;
+  return /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
     fullHeight: true,
     flex: "column",
     p: "lg",
@@ -109,17 +115,17 @@ const PaperFormUIScreen = props => {
     style: {
       minHeight: "250px"
     },
-    children: [/*#__PURE__*/jsx(ModalHeader, {
+    children: [/*#__PURE__*/jsxRuntime.jsx(formElements.ModalHeader, {
       onBack: props.onBack,
       title: locale.signIn
-    }), isCompact ? /*#__PURE__*/jsx(Spacer, {
+    }), isCompact ? /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
       y: "xl"
-    }) : null, /*#__PURE__*/jsx(Container, {
+    }) : null, /*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
       expand: true,
       flex: "column",
       center: "y",
       p: isCompact ? undefined : "lg",
-      children: /*#__PURE__*/jsx(PaperFormUI, {
+      children: /*#__PURE__*/jsxRuntime.jsx(PaperFormUI, {
         walletConfig: props.walletConfig,
         googleLoginSupported: props.googleLoginSupported,
         onSelect: props.onSelect,
@@ -130,28 +136,28 @@ const PaperFormUIScreen = props => {
     })]
   });
 };
-const SocialButton = /* @__PURE__ */styled(Button)({
+const SocialButton = /* @__PURE__ */styled__default["default"](formElements.Button)({
   display: "flex",
   justifyContent: "center",
-  gap: spacing.sm
+  gap: formElements.spacing.sm
 });
 
 const PaperOTPLoginUI = props => {
-  const locale = useTWLocale().wallets.paperWallet.emailLoginScreen;
+  const locale = formElements.useTWLocale().wallets.paperWallet.emailLoginScreen;
   const email = props.selectionData;
-  const [otpInput, setOtpInput] = useState("");
-  const [recoveryCode, setRecoveryCode] = useState("");
+  const [otpInput, setOtpInput] = React.useState("");
+  const [recoveryCode, setRecoveryCode] = React.useState("");
   const {
     createWalletInstance,
     setConnectedWallet,
     setConnectionStatus
   } = props;
-  const [wallet, setWallet] = useState(null);
+  const [wallet, setWallet] = React.useState(null);
   const isWideModal = props.modalSize === "wide";
-  const [verifyStatus, setVerifyStatus] = useState("idle");
-  const [sendEmailStatus, setSendEmailStatus] = useState("sending");
+  const [verifyStatus, setVerifyStatus] = React.useState("idle");
+  const [sendEmailStatus, setSendEmailStatus] = React.useState("sending");
   const recoveryCodeRequired = !!(typeof sendEmailStatus !== "string" && sendEmailStatus.recoveryShareManagement !== "AWS_MANAGED" && sendEmailStatus.isNewDevice && !sendEmailStatus.isNewUser);
-  const sendEmail = useCallback(async () => {
+  const sendEmail = React.useCallback(async () => {
     setOtpInput("");
     setVerifyStatus("idle");
     setSendEmailStatus("sending");
@@ -209,48 +215,48 @@ const PaperOTPLoginUI = props => {
   };
 
   // send email on mount
-  const emailSentOnMount = useRef(false);
-  useEffect(() => {
+  const emailSentOnMount = React.useRef(false);
+  React.useEffect(() => {
     if (!emailSentOnMount.current) {
       emailSentOnMount.current = true;
       sendEmail();
     }
   }, [sendEmail]);
-  return /*#__PURE__*/jsxs(Container, {
+  return /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
     fullHeight: true,
     flex: "column",
     animate: "fadein",
-    children: [/*#__PURE__*/jsx(Container, {
+    children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
       p: "lg",
-      children: /*#__PURE__*/jsx(ModalHeader, {
+      children: /*#__PURE__*/jsxRuntime.jsx(formElements.ModalHeader, {
         title: locale.title,
         onBack: props.goBack
       })
-    }), /*#__PURE__*/jsx(Container, {
+    }), /*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
       expand: true,
       flex: "column",
       center: "y",
-      children: /*#__PURE__*/jsxs("form", {
+      children: /*#__PURE__*/jsxRuntime.jsxs("form", {
         onSubmit: e => {
           e.preventDefault();
         },
-        children: [/*#__PURE__*/jsxs(Container, {
+        children: [/*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
           flex: "column",
           center: "x",
           px: "lg",
-          children: [!isWideModal && /*#__PURE__*/jsx(Spacer, {
+          children: [!isWideModal && /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "lg"
-          }), /*#__PURE__*/jsx(Text, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
             children: locale.enterCodeSendTo
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "sm"
-          }), /*#__PURE__*/jsx(Text, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
             color: "primaryText",
             children: email
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "xl"
           })]
-        }), /*#__PURE__*/jsx(OTPInput, {
+        }), /*#__PURE__*/jsxRuntime.jsx(oneKeyWallet.OTPInput, {
           isInvalid: verifyStatus === "invalid",
           digits: 6,
           value: otpInput,
@@ -264,20 +270,20 @@ const PaperOTPLoginUI = props => {
           onEnter: () => {
             handleSubmit(otpInput);
           }
-        }), recoveryCodeRequired && /*#__PURE__*/jsxs(Container, {
+        }), recoveryCodeRequired && /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
           animate: "fadein",
           px: "lg",
           style: {
             textAlign: "center"
           },
-          children: [/*#__PURE__*/jsx(Spacer, {
+          children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "xxl"
-          }), /*#__PURE__*/jsx(Text, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
             color: "primaryText",
             children: locale.newDeviceDetected
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "sm"
-          }), /*#__PURE__*/jsx(Text, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
             balance: true,
             size: "sm",
             multiline: true,
@@ -285,9 +291,9 @@ const PaperOTPLoginUI = props => {
               maxWidth: "350px"
             },
             children: locale.enterRecoveryCode
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "lg"
-          }), /*#__PURE__*/jsx(Input, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Input, {
             sm: true,
             autoComplete: "off",
             required: true,
@@ -301,33 +307,33 @@ const PaperOTPLoginUI = props => {
             onChange: e => setRecoveryCode(e.target.value),
             placeholder: locale.enterRecoveryCode
           })]
-        }), verifyStatus === "invalid" && /*#__PURE__*/jsxs(Container, {
+        }), verifyStatus === "invalid" && /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
           animate: "fadein",
-          children: [/*#__PURE__*/jsx(Spacer, {
+          children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "md"
-          }), /*#__PURE__*/jsx(Text, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
             size: "sm",
             color: "danger",
             center: true,
             children: recoveryCodeRequired ? locale.invalidCodeOrRecoveryCode : locale.invalidCode
           })]
-        }), /*#__PURE__*/jsx(Spacer, {
+        }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
           y: "xl"
-        }), /*#__PURE__*/jsx(Container, {
+        }), /*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
           px: isWideModal ? "xxl" : "lg",
-          children: verifyStatus === "verifying" ? /*#__PURE__*/jsx(Fragment, {
-            children: /*#__PURE__*/jsx(Container, {
+          children: verifyStatus === "verifying" ? /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+            children: /*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
               flex: "row",
               center: "x",
               animate: "fadein",
-              children: /*#__PURE__*/jsx(Spinner, {
+              children: /*#__PURE__*/jsxRuntime.jsx(formElements.Spinner, {
                 size: "lg",
                 color: "accentText"
               })
             })
-          }) : /*#__PURE__*/jsx(Container, {
+          }) : /*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
             animate: "fadein",
-            children: /*#__PURE__*/jsx(Button, {
+            children: /*#__PURE__*/jsxRuntime.jsx(formElements.Button, {
               onClick: () => handleSubmit(otpInput),
               variant: "accent",
               type: "submit",
@@ -337,33 +343,33 @@ const PaperOTPLoginUI = props => {
               children: locale.verify
             })
           }, "btn-container")
-        }), /*#__PURE__*/jsx(Spacer, {
+        }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
           y: "xl"
-        }), !isWideModal && /*#__PURE__*/jsx(Line, {}), /*#__PURE__*/jsxs(Container, {
+        }), !isWideModal && /*#__PURE__*/jsxRuntime.jsx(formElements.Line, {}), /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
           p: isWideModal ? undefined : "lg",
           animate: "fadein",
-          children: [sendEmailStatus === "error" && /*#__PURE__*/jsx(Fragment, {
-            children: /*#__PURE__*/jsx(Text, {
+          children: [sendEmailStatus === "error" && /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+            children: /*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
               size: "sm",
               center: true,
               color: "danger",
               children: locale.failedToSendCode
             })
-          }), sendEmailStatus === "sending" && /*#__PURE__*/jsxs(Container, {
+          }), sendEmailStatus === "sending" && /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
             flex: "row",
             center: "both",
             gap: "xs",
             style: {
               textAlign: "center"
             },
-            children: [/*#__PURE__*/jsx(Text, {
+            children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
               size: "sm",
               children: locale.sendingCode
-            }), /*#__PURE__*/jsx(Spinner, {
+            }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spinner, {
               size: "xs",
               color: "secondaryText"
             })]
-          }), typeof sendEmailStatus !== "string" && /*#__PURE__*/jsx(LinkButton, {
+          }), typeof sendEmailStatus !== "string" && /*#__PURE__*/jsxRuntime.jsx(LinkButton, {
             onClick: sendEmail,
             type: "button",
             children: locale.resendCode
@@ -373,12 +379,12 @@ const PaperOTPLoginUI = props => {
     })]
   });
 };
-const LinkButton = /* @__PURE__ */StyledButton(() => {
-  const theme = useCustomTheme();
+const LinkButton = /* @__PURE__ */formElements.StyledButton(() => {
+  const theme = formElements.useCustomTheme();
   return {
     all: "unset",
     color: theme.colors.accentText,
-    fontSize: fontSize.sm,
+    fontSize: formElements.fontSize.sm,
     cursor: "pointer",
     textAlign: "center",
     width: "100%",
@@ -398,15 +404,15 @@ const PaperGoogleLogin = props => {
     setConnectedWallet,
     connectionStatus
   } = props;
-  const locale = useTWLocale().wallets.paperWallet.googleLoginScreen;
-  const themeObj = useCustomTheme();
+  const locale = formElements.useTWLocale().wallets.paperWallet.googleLoginScreen;
+  const themeObj = formElements.useCustomTheme();
 
   // Need to trigger google login on button click to avoid popup from being blocked
   const googleLogin = async () => {
     try {
       const paperWallet = createWalletInstance();
       setConnectionStatus("connecting");
-      const googleWindow = openOauthSignInWindow("google", themeObj);
+      const googleWindow = oneKeyWallet.openOauthSignInWindow("google", themeObj);
       if (!googleWindow) {
         throw new Error("Failed to open google login window");
       }
@@ -425,39 +431,39 @@ const PaperGoogleLogin = props => {
       console.error(e);
     }
   };
-  useEffect(() => {
+  React.useEffect(() => {
     if (connectionStatus === "connected") {
       connected();
     }
   }, [connectionStatus, connected]);
-  return /*#__PURE__*/jsx(Container, {
+  return /*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
     animate: "fadein",
     flex: "column",
     fullHeight: true,
-    children: /*#__PURE__*/jsxs(Container, {
+    children: /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
       flex: "column",
       expand: true,
       p: "lg",
       style: {
         paddingBottom: 0
       },
-      children: [/*#__PURE__*/jsx(ModalHeader, {
-        title: /*#__PURE__*/jsxs(Container, {
+      children: [/*#__PURE__*/jsxRuntime.jsx(formElements.ModalHeader, {
+        title: /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
           flex: "row",
           center: "both",
           gap: "xs",
-          children: [/*#__PURE__*/jsx(Img, {
-            src: googleIconUri,
-            width: iconSize.md,
-            height: iconSize.md
-          }), /*#__PURE__*/jsxs(ModalTitle, {
+          children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Img, {
+            src: Tooltip.googleIconUri,
+            width: formElements.iconSize.md,
+            height: formElements.iconSize.md
+          }), /*#__PURE__*/jsxRuntime.jsxs(formElements.ModalTitle, {
             children: [" ", locale.title, " "]
           })]
         }),
         onBack: goBack
-      }), modalSize === "compact" ? /*#__PURE__*/jsx(Spacer, {
+      }), modalSize === "compact" ? /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
         y: "xl"
-      }) : null, /*#__PURE__*/jsxs(Container, {
+      }) : null, /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
         flex: "column",
         center: "both",
         expand: true,
@@ -465,9 +471,9 @@ const PaperGoogleLogin = props => {
           textAlign: "center",
           minHeight: "250px"
         },
-        children: [connectionStatus === "connecting" && /*#__PURE__*/jsxs(Container, {
+        children: [connectionStatus === "connecting" && /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
           animate: "fadein",
-          children: [/*#__PURE__*/jsx(Text, {
+          children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
             color: "primaryText",
             multiline: true,
             center: true,
@@ -475,30 +481,30 @@ const PaperGoogleLogin = props => {
               maxWidth: "250px"
             },
             children: locale.instruction
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "xl"
-          }), /*#__PURE__*/jsx(Container, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Container, {
             center: "x",
             flex: "row",
-            children: /*#__PURE__*/jsx(Spinner, {
+            children: /*#__PURE__*/jsxRuntime.jsx(formElements.Spinner, {
               size: "lg",
               color: "accentText"
             })
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "xxl"
           })]
-        }), connectionStatus === "disconnected" && /*#__PURE__*/jsxs(Container, {
+        }), connectionStatus === "disconnected" && /*#__PURE__*/jsxRuntime.jsxs(formElements.Container, {
           animate: "fadein",
-          children: [/*#__PURE__*/jsx(Text, {
+          children: [/*#__PURE__*/jsxRuntime.jsx(formElements.Text, {
             color: "danger",
             children: locale.failed
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "lg"
-          }), /*#__PURE__*/jsx(Button, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Button, {
             variant: "primary",
             onClick: googleLogin,
             children: locale.retry
-          }), /*#__PURE__*/jsx(Spacer, {
+          }), /*#__PURE__*/jsxRuntime.jsx(formElements.Spacer, {
             y: "xxl"
           })]
         })]
@@ -524,15 +530,15 @@ const paperWallet = options => {
   return {
     category: "socialLogin",
     isHeadless: true,
-    id: PaperWallet.id,
+    id: wallets.PaperWallet.id,
     recommended: finalOptions?.recommended,
     meta: {
-      ...PaperWallet.meta,
+      ...wallets.PaperWallet.meta,
       name: "Email",
-      iconURL: emailIcon
+      iconURL: Tooltip.emailIcon
     },
     create(walletOptions) {
-      return new PaperWallet({
+      return new wallets.PaperWallet({
         ...walletOptions,
         ...finalOptions,
         advancedOptions: {
@@ -542,14 +548,14 @@ const paperWallet = options => {
       });
     },
     selectUI(props) {
-      return /*#__PURE__*/jsx(PaperSelectionUI, {
+      return /*#__PURE__*/jsxRuntime.jsx(PaperSelectionUI, {
         ...props,
         recoveryShareManagement: finalOptions?.advancedOptions?.recoveryShareManagement || defaultRecovery,
         providers: oauthOptions ? oauthOptions?.providers : undefined
       });
     },
     connectUI(props) {
-      return /*#__PURE__*/jsx(PaperConnectUI, {
+      return /*#__PURE__*/jsxRuntime.jsx(PaperConnectUI, {
         ...props,
         recoveryShareManagement: finalOptions?.advancedOptions?.recoveryShareManagement || defaultRecovery,
         providers: oauthOptions ? oauthOptions?.providers : undefined
@@ -558,21 +564,21 @@ const paperWallet = options => {
   };
 };
 const PaperSelectionUI = props => {
-  const screen = useScreenContext();
+  const screen = Tooltip.useScreenContext();
 
   // show the icon + text if
   // wide -
   // compact + not main screen (safe/smart wallet list screen)
-  if (props.modalSize === "wide" || screen !== reservedScreens.main && props.modalSize === "compact") {
-    return /*#__PURE__*/jsx(WalletEntryButton, {
+  if (props.modalSize === "wide" || screen !== Tooltip.reservedScreens.main && props.modalSize === "compact") {
+    return /*#__PURE__*/jsxRuntime.jsx(formElements.WalletEntryButton, {
       walletConfig: props.walletConfig,
       selectWallet: () => {
         props.onSelect(undefined);
       }
     });
   }
-  return /*#__PURE__*/jsx("div", {
-    children: /*#__PURE__*/jsx(PaperFormUI, {
+  return /*#__PURE__*/jsxRuntime.jsx("div", {
+    children: /*#__PURE__*/jsxRuntime.jsx(PaperFormUI, {
       walletConfig: props.walletConfig,
       googleLoginSupported: props.recoveryShareManagement !== "USER_MANAGED" && !!props.providers?.includes("google"),
       onSelect: props.onSelect,
@@ -583,7 +589,7 @@ const PaperSelectionUI = props => {
   });
 };
 const PaperConnectUI = props => {
-  const [loginType, setLoginType] = useState(props.selectionData);
+  const [loginType, setLoginType] = React.useState(props.selectionData);
   if (loginType) {
     const handleBack = () => {
       // go back to base screen
@@ -597,7 +603,7 @@ const PaperConnectUI = props => {
       }
     };
     if ("email" in loginType) {
-      return /*#__PURE__*/jsx(PaperOTPLoginUI, {
+      return /*#__PURE__*/jsxRuntime.jsx(PaperOTPLoginUI, {
         ...props,
         recoveryShareManagement: props.recoveryShareManagement,
         selectionData: loginType.email,
@@ -607,13 +613,13 @@ const PaperConnectUI = props => {
 
     // google
     else {
-      return /*#__PURE__*/jsx(PaperGoogleLogin, {
+      return /*#__PURE__*/jsxRuntime.jsx(PaperGoogleLogin, {
         ...props,
         goBack: handleBack
       });
     }
   }
-  return /*#__PURE__*/jsx(PaperFormUIScreen, {
+  return /*#__PURE__*/jsxRuntime.jsx(PaperFormUIScreen, {
     walletConfig: props.walletConfig,
     googleLoginSupported: props.recoveryShareManagement !== "USER_MANAGED" && !!props.providers?.includes("google"),
     modalSize: props.modalSize,
@@ -627,4 +633,4 @@ const PaperConnectUI = props => {
   });
 };
 
-export { paperWallet };
+exports.paperWallet = paperWallet;

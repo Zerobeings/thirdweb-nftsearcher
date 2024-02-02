@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var oneKeyWallet = require('./oneKeyWallet-648b2db0.cjs.prod.js');
+var oneKeyWallet = require('./oneKeyWallet-074d4e95.cjs.prod.js');
 var coinbaseWallet = require('./safeChainSlug-fd1debda.cjs.prod.js');
 var reactCore = require('@thirdweb-dev/react-core');
 var smartWallet$2 = require('@thirdweb-dev/wallets/evm/wallets/smart-wallet');
@@ -15,7 +15,7 @@ var reactIcons = require('@radix-ui/react-icons');
 var styled = require('@emotion/styled');
 var jsxRuntime = require('react/jsx-runtime');
 var magicLink = require('./magicLink-7efdbd5a.cjs.prod.js');
-var paperWallet = require('./paperWallet-9708cbdc.cjs.prod.js');
+var paperWallet = require('./paperWallet-cf7eceb7.cjs.prod.js');
 var safeWallet = require('./safeWallet-25252665.cjs.prod.js');
 var walletConnectV1 = require('./walletConnectV1-1aad1f73.cjs.prod.js');
 var useSafe = require('./useSafe-fbd02f6d.cjs.prod.js');

@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var formElements = require('../../dist/formElements-c3eed36c.cjs.prod.js');
 var useSafe = require('../../dist/useSafe-fbd02f6d.cjs.prod.js');
 var useMagic = require('../../dist/useMagic-e3f0a023.cjs.prod.js');
-var oneKeyWallet = require('../../dist/oneKeyWallet-648b2db0.cjs.prod.js');
+var oneKeyWallet = require('../../dist/oneKeyWallet-074d4e95.cjs.prod.js');
 var reactCore = require('@thirdweb-dev/react-core');
 var wallets = require('@thirdweb-dev/wallets');
 require('@emotion/react');

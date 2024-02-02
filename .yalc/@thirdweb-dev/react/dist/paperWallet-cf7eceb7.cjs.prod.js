@@ -4,7 +4,7 @@ var wallets = require('@thirdweb-dev/wallets');
 var React = require('react');
 var styled = require('@emotion/styled');
 var formElements = require('./formElements-c3eed36c.cjs.prod.js');
-var oneKeyWallet = require('./oneKeyWallet-648b2db0.cjs.prod.js');
+var oneKeyWallet = require('./oneKeyWallet-074d4e95.cjs.prod.js');
 var Tooltip = require('./Tooltip-abeeca73.cjs.prod.js');
 var jsxRuntime = require('react/jsx-runtime');
 require('@emotion/react');

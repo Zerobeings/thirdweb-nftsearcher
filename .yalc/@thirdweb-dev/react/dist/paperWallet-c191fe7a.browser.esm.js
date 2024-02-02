@@ -2,7 +2,7 @@ import { PaperWallet } from '@thirdweb-dev/wallets';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { c as useTWLocale, u as useCustomTheme, I as Img, a as iconSize, q as TextDivider, C as Container, M as ModalHeader, S as Spacer, B as Button, s as spacing, T as Text, v as Input, e as Spinner, L as Line, A as StyledButton, h as fontSize, J as ModalTitle, W as WalletEntryButton } from './formElements-9ee7ad15.browser.esm.js';
-import { x as openOauthSignInWindow, O as OTPInput } from './oneKeyWallet-4fc1c7f5.browser.esm.js';
+import { x as openOauthSignInWindow, O as OTPInput } from './oneKeyWallet-bbddaec7.browser.esm.js';
 import { g as googleIconUri, I as InputSelectionUI, e as emailIcon, u as useScreenContext, r as reservedScreens } from './Tooltip-353212b1.browser.esm.js';
 import { jsxs, Fragment, jsx } from 'react/jsx-runtime';
 import '@emotion/react';
