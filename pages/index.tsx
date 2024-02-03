@@ -105,7 +105,7 @@ const Home: NextPage = () => {
         <div style={{textAlign: 'right', marginTop: '10px'}}>
           <ConnectWallet />
         </div>
-        <h4 className={styles.title}>
+        <h4 className={styles.title} style={{textAlign: 'center'}}>
           NFTSearcher
         </h4>
           <div style={{textAlign: 'center'}}>
