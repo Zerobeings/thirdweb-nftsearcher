@@ -102,11 +102,11 @@ const Home: NextPage = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <div style={{textAlign: 'right'}}>
+        <div style={{textAlign: 'right', marginTop: '10px'}}>
           <ConnectWallet />
         </div>
         <h4 className={styles.title}>
-          edit <code>`pages/index.tsx`</code> to begin.
+          NFTSearcher
         </h4>
           <div style={{textAlign: 'center'}}>
             <NFTSearcher 
