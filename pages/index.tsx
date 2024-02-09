@@ -1,10 +1,11 @@
-import { ConnectWallet, useAddress, useChain, NFTSearcher } from "@thirdweb-dev/react";
+import { ConnectWallet, useAddress, useChain } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import { NextPage } from "next";
 import { useEffect, useState, useCallback } from "react";
 import NFTCard from "../components/NFTCard/NFTCard";
 import Filter from "../components/Filter/Filter";
+import NFTSearcher from "../components/NFTSearcher/NFTSearcher";
 
 interface Attributes {
   [key: string]: string[];

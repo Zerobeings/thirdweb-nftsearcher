@@ -1,5 +1,4 @@
 import styles from './NFTCard.module.css';
-import Image from 'next/image';
 import { MediaRenderer } from "@thirdweb-dev/react";
 import { useEffect, useState } from 'react';
 
